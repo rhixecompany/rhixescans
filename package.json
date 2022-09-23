@@ -1,7 +1,28 @@
 {
   "name": "rhixescans",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "Read Free Webcomics",
+  "main": "server.js",
+  "scripts": {
+    "start": "npm run start --prefix client",
+    "build": "npm run build --prefix client",
+    "server": "nodemon backend/server",
+    "dev": "concurrently \"npm run server\" \"npm run start\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhixecompany/rhixescans.git"
+  },
+  "keywords": [
+    "comics"
+  ],
+  "author": "Alexander Iseghohi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rhixecompany/rhixescans/issues"
+  },
+  "homepage": "https://github.com/rhixecompany/rhixescans#readme",
   "dependencies": {
     "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
@@ -13,36 +34,8 @@
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "mariadb": "^3.0.1",
-    "mongoose": "^6.5.4"
-  },
-  "scripts": {
-    "start": "npm run start --prefix client",
-    "build": "npm run build --prefix client",
-    "server": "nodemon backend/server",
-    "dev": "concurrently \"npm run server\" \"npm run start\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm install --prefix frontend && npm run build --prefix frontend"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "concurrently": "^7.3.0",
-    "nodemon": "^2.0.19",
+    "concurrently": "^7.4.0",
+    "nodemon": "^2.0.20",
     "serve": "^14.0.1"
   }
 }
